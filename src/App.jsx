@@ -70,163 +70,163 @@ function buildQ(age) {
   return {
     q1: {
       id:"q1", type:"single",
-      text: y("free saturday, money to spend. what are you actually doing?",
-               "rare free saturday, schedule actually clear. what sounds most like you?"),
+      text: y("🧭 Free Saturday, money to spend. What are you actually doing?",
+               "🧭 Rare free Saturday, schedule actually clear. What sounds most like you?"),
       options: y([
-        { id:"novelty",  label:"hunting down somewhere new — i'll figure it out when i get there" },
-        { id:"balanced", label:"finally trying that place i've been meaning to check out" },
-        { id:"comfort",  label:"going back somewhere i know — why gamble on a rare free day" },
+        { id:"novelty",  label:"Hunting down somewhere I've never been — the unknown is the point" },
+        { id:"balanced", label:"Finally going to that place I've been meaning to check out" },
+        { id:"comfort",  label:"Somewhere I already know is good — a free day isn't the day to gamble" },
       ],[
-        { id:"novelty",  label:"somewhere completely new — a part of the city i haven't explored" },
-        { id:"balanced", label:"that place i bookmarked ages ago — feels like the right day" },
-        { id:"comfort",  label:"somewhere i already know is good — a free day isn't the day to risk it" },
+        { id:"novelty",  label:"Somewhere completely new — a part of the city I haven't explored yet" },
+        { id:"balanced", label:"That place I bookmarked months ago — feels like the right time" },
+        { id:"comfort",  label:"Somewhere I know delivers — free time is too valuable to risk on the unknown" },
       ]),
     },
     q2a: {
       id:"q2a", type:"multi", cap:2,
-      text: y("and what kind of new are we talking? pick 2.","what does 'new' usually mean for you? pick 2."),
+      text: y("🔍 And what kind of new are we actually talking? Pick 2.","🔍 What does 'new' usually mean for you? Pick 2."),
       options:[
-        { id:"place",        label:"📍 somewhere i've never been — a new spot, off the usual circuit" },
-        { id:"intellectual", label:"💡 something that'll actually make me think or learn" },
-        { id:"social",       label:"🌐 meeting people outside my usual circle — that's the point" },
-        { id:"physical",     label:"💪 something active i haven't tried — a new sport, class, trail" },
-        { id:"creative",     label:"🎨 something creative — making something, or being moved by it" },
+        { id:"place",        label: y("A place I've never been — somewhere off my usual circuit entirely","A place I'd never have found on my own — new area, hidden spot") },
+        { id:"intellectual", label: y("Something that will genuinely make me think","Something I'll walk away from having genuinely thought about") },
+        { id:"social",       label: y("Meeting people outside my usual circle — the social surprise is the draw","An experience where I might meet someone interesting outside my usual group") },
+        { id:"physical",     label: y("Something active I haven't tried before — a new sport, class, or trail","Something physical I haven't done before — I want to feel it") },
+        { id:"creative",     label: y("Something creative — making something, or being moved by something made","Something creative or artistic — making or witnessing something that lands") },
       ],
     },
     q2b: {
       id:"q2b", type:"multi", cap:null,
-      text: y("when you do try something new — what's usually going on? pick all that feel true.",
-               "when you're in the mood to try something different — what's usually behind it?"),
+      text: y("⚖️ When you do try something new — what's usually going on? Pick all that feel true.",
+               "⚖️ When you're in the mood to try something different — what's usually behind it?"),
       options:[
-        { id:"energy",  label: y("😄 i'm in a good headspace and actually have energy for it","😄 i'm having a good week and want to mark it with something different") },
-        { id:"fatigue", label:"😮‍💨 i've been stuck in the same routine and i can feel it" },
-        { id:"proof",   label:"👌 someone i trust suggested it — there's some social proof behind it" },
-        { id:"company", label:"🫂 the right person is coming with me — certain people make me bolder" },
-        { id:"story",   label: y("✨ i want something worth actually talking about afterwards","✨ i want an experience i'll actually reference later — not just another evening") },
+        { id:"energy",  label: y("I'm in a good headspace and I actually have the energy for it","It's been a good week and I want to mark it with something") },
+        { id:"fatigue", label: y("I've been in the same routine too long and I can feel it","I've been in the same loop for too long and it's starting to show") },
+        { id:"proof",   label: y("Someone I trust has been or recommended it specifically","Someone I respect went and told me to — that matters to me") },
+        { id:"company", label: y("The right person is coming with me — certain people make me bolder","The right person is coming — I'm more adventurous with certain people") },
+        { id:"story",   label: y("I want something worth talking about afterwards","I want an experience I'll actually bring up again, not just another evening out") },
       ],
     },
     q2c: {
       id:"q2c", type:"multi", cap:2,
-      text: y("when something feels like a guaranteed good time — what makes it that way? pick 2.",
-               "when something feels reliable and worth it — what's usually behind that? pick 2."),
+      text: y("✅ When something feels like a guaranteed good time — what's usually behind that? Pick 2.",
+               "✅ When something feels reliable and worth it — what's usually at the root of that? Pick 2."),
       options:[
-        { id:"known-place",  label: y("📍 a place i already know and like — familiarity is the point","📍 somewhere i've been before and liked — going because i know it") },
-        { id:"known-format", label:"🔁 a format i've done before and genuinely enjoy" },
-        { id:"company",      label:"🫂 the right people with me — that matters more than the activity" },
-        { id:"expectation",  label:"✅ i know exactly what i'm walking into — no surprises" },
-        { id:"friction",     label: y("🚗 it's easy to get to — i'm not fighting the city for it","🚗 low friction to get there — the experience starts before i arrive") },
+        { id:"known-place",  label: y("I've been before and I know exactly what I'm getting","It's somewhere I've been before and it's earned its place") },
+        { id:"known-format", label: y("It's a format I genuinely enjoy and have done before","It's a format I'm comfortable with — variety within it is fine") },
+        { id:"company",      label: y("I'm going with the right people — the company matters more than the plan","The right company — who I'm with matters more than where I'm going") },
+        { id:"expectation",  label: y("I know what to expect walking in — no surprises, no figuring it out","I know what I'm walking into — predictable in the good sense") },
+        { id:"friction",     label: y("It's easy to get to — I'm not fighting the city to get there","It's low-friction to get there — the experience starts before I arrive") },
       ],
     },
     q3a: {
       id:"q3a", type:"single",
-      text: y("and who do you want with you when you're trying something new?","what's the right social setup for discovering something new?"),
+      text: y("👥 Who do you want with you when you're trying something new?","👥 What's the right social setup when you're discovering something new?"),
       options:[
-        { id:"solo",  label: y("🧍 just me — i move faster and don't have to compromise","🧍 solo — fully at my own pace, no coordinating") },
-        { id:"pair",  label: y("👥 one person, whoever i'm closest to right now","👥 one person i genuinely want there with me") },
-        { id:"small", label: y("👨‍👩‍👧 my close group — three or four people i actually know","👨‍👩‍👧 small group — close friends, enough energy, no logistics headache") },
-        { id:"large", label:"🎉 the whole group — i like the collective energy" },
-        { id:"open",  label: y("🌐 open to whoever — new people in that context is fine","🌐 open to meeting people — if i'm already stepping out, why not") },
+        { id:"solo",  label: y("Just me — I move faster and I don't have to compromise","Solo — fully at my own pace, no coordinating required") },
+        { id:"pair",  label: y("One person, whoever I'm closest to right now","One person I genuinely want there with me") },
+        { id:"small", label: y("My close group — three or four people I actually know","Small close group — enough energy, no logistics problem") },
+        { id:"large", label: y("The full group — I like the collective energy","Bigger group — I like the collective discovery energy") },
+        { id:"open",  label: y("Open to whoever — new people in that context is fine by me","Open to meeting people — if I'm stepping out anyway, why not") },
       ],
     },
     q3b: {
       id:"q3b", type:"single",
-      text: y("who do you usually end up going out with?","what's your usual social setup when you go out?"),
+      text: y("👥 Who do you usually end up going out with?","👥 What's your usual social setup when you go out?"),
       options:[
-        { id:"solo",     label: y("🧍 on my own honestly — more than people might expect","🧍 solo — i actually prefer my own company for a lot of this") },
-        { id:"pair",     label: y("👥 one person — two is genuinely the right dynamic for me","👥 partner or one close friend — that's the unit i default to") },
-        { id:"small",    label: y("👨‍👩‍👧 small group — my actual close friends, not the full group chat","👨‍👩‍👧 small group of people i'm genuinely close to") },
-        { id:"large",    label: y("🎉 the whole group when possible — i like that energy","🎉 bigger group — smaller plans can feel underwhelming") },
-        { id:"flexible", label:"🔀 genuinely varies — the activity usually decides it" },
+        { id:"solo",     label: y("On my own, honestly — more than people might expect","Solo — I've learned I genuinely prefer my own company for a lot of this") },
+        { id:"pair",     label: y("One person — two is genuinely the right dynamic for me","Partner or one close friend — that's the unit I default to") },
+        { id:"small",    label: y("Small close group — my actual friends, not the full group chat","Small group of people I'm actually close to") },
+        { id:"large",    label: y("The whole group when possible — I like that energy","Bigger group — smaller plans can feel underwhelming to me") },
+        { id:"flexible", label:"Genuinely varies — the activity usually decides it" },
       ],
     },
     q3c: {
       id:"q3c", type:"single",
-      text: y("when you're doing something you enjoy — how much do you actually want to exert?","how much do you want to invest in the experience itself?"),
+      text: y("💪 When you're doing something you enjoy — how much do you want to exert?","💪 When you're out doing something you enjoy — how much do you actually want to put in?"),
       options:[
-        { id:"high",     label: y("🔥🔥🔥 a lot — i feel better when i've actually done something","🔥🔥🔥 high — passive experiences rarely satisfy me") },
-        { id:"medium",   label:"🔥🔥 engaged but not wiped out — somewhere in the middle" },
-        { id:"low",      label: y("🔥 low — show up, enjoy it, no effort required","🔥 low — i want to arrive and have it be good without working for it") },
-        { id:"variable", label: y("🔄 completely depends on how my week's gone","🔄 varies too much — a long week changes everything") },
+        { id:"high",     label: y("A lot — I feel better when I've actually done something","High — passive experiences rarely feel like enough") },
+        { id:"medium",   label:"Engaged but not wiped out — somewhere in the middle" },
+        { id:"low",      label: y("Low — show up, enjoy it, no effort required","Low — I want to arrive and have it be good without working for it") },
+        { id:"variable", label: y("Completely depends on how my week's gone","Varies too much to call — a long week changes everything") },
       ],
     },
     q4_effort: {
       id:"q4_effort", type:"single",
-      text: y("how much do you actually want to do when you're out?","how much effort do you want to invest in the experience itself?"),
+      text: y("💪 How much do you actually want to be doing when you're out?","💪 How much do you want to put into the experience itself?"),
       options:[
-        { id:"high",     label: y("🔥🔥🔥 a lot — passive feels like a waste of going out","🔥🔥🔥 high — i'd rather push myself and feel it afterwards") },
-        { id:"medium",   label:"🔥🔥 active and present, but not at my limit" },
-        { id:"low",      label: y("🔥 low — i want to arrive and enjoy without working for it","🔥 low — arrive, settle in, have it come to me") },
-        { id:"variable", label: y("🔄 honestly depends on how my week's been","🔄 varies week to week — a brutal week changes everything") },
-      ],
-    },
-    q5_spont: {
-      id:"q5_spont", type:"single",
-      text: y("do you tend to plan it or just go?","how do you prefer to plan?"),
-      options:[
-        { id:"spontaneous", label: y("⚡ i basically just go — if i'm in the mood, i'm there","⚡ last minute — if i'm free and in the mood, i go") },
-        { id:"loose",       label: y("📆 day or two ahead — loose plan, nothing locked in","📆 loose structure — a few days ahead, nothing rigid") },
-        { id:"planned",     label: y("🗓️ i like it in the calendar — something to look forward to","🗓️ planned — free time is precious, i'm not winging it") },
+        { id:"high",     label: y("A lot — passive feels like a waste of going out","High — I'd rather push myself and feel it afterwards") },
+        { id:"medium",   label:"Active and present, but not at my limit" },
+        { id:"low",      label: y("Low — I want to arrive and enjoy without working for it","Low — arrive, settle in, let it come to me") },
+        { id:"variable", label: y("Honestly depends on how my week's been","Varies week to week — a rough few days changes everything") },
       ],
     },
     q4_spont: {
       id:"q4_spont", type:"single",
-      text: y("how do plans usually happen for you?","how do you prefer to approach plans generally?"),
+      text: y("🗓️ How do plans usually happen for you?","🗓️ How do you prefer to plan?"),
       options:[
-        { id:"spontaneous", label: y("⚡ last minute — something comes up and i go","⚡ last minute — if i'm free and in the mood, i go") },
-        { id:"loose",       label: y("📆 a couple of days ahead — rough idea, that's enough","📆 loose structure — a few days ahead, nothing rigid") },
-        { id:"planned",     label: y("🗓️ i like it locked in — i'm more likely to actually go","🗓️ planned — free time is precious, i'm not winging it") },
+        { id:"spontaneous", label: y("Last minute — something comes up and I just go","Last minute — if I'm free and in the mood, I go") },
+        { id:"loose",       label: y("A couple of days ahead — rough idea, that's enough","Loose structure — a few days ahead, nothing rigid") },
+        { id:"planned",     label: y("I like it locked in — I'm more likely to actually show up","Planned — free time is precious, I'm not winging it") },
       ],
     },
     q5_effort: {
       id:"q5_effort", type:"single",
-      text: y("on a typical outing — how much energy do you want to spend?","how much do you want to invest in the experience itself?"),
+      text: y("💪 On a typical outing — how much energy do you want to spend?","💪 How much do you want to put into the experience itself?"),
       options:[
-        { id:"high",     label: y("🔥🔥🔥 a lot — i feel it more when i've actually done something","🔥🔥🔥 high — i'd rather push myself and feel it afterwards") },
-        { id:"medium",   label:"🔥🔥 engaged but sustainable — active without being drained" },
-        { id:"low",      label: y("🔥 low — show up, enjoy, the effort of getting there is enough","🔥 low — arrive, settle in, have it come to me") },
-        { id:"variable", label: y("🔄 depends on the week — i can't call it in advance","🔄 varies week to week — a brutal week changes everything") },
+        { id:"high",     label: y("A lot — I feel it more when I've actually done something","High — I'd rather push myself and feel it afterwards") },
+        { id:"medium",   label:"Engaged but sustainable — active without being drained" },
+        { id:"low",      label: y("Low — show up, enjoy it, the effort of getting there is enough","Low — arrive, settle in, let it come to me") },
+        { id:"variable", label: y("Depends on the week — I genuinely can't call it in advance","Varies week to week — a rough few days changes everything") },
+      ],
+    },
+    q5_spont: {
+      id:"q5_spont", type:"single",
+      text: y("🗓️ Do you plan it or just go?","🗓️ How do you prefer to plan?"),
+      options:[
+        { id:"spontaneous", label: y("I basically just go — if I'm in the mood, I'm there","Last minute — if I'm free and in the mood, I go") },
+        { id:"loose",       label: y("A day or two ahead — loose plan, nothing locked in","Loose structure — a few days ahead, nothing rigid") },
+        { id:"planned",     label: y("I like it in the calendar — having something to look forward to is part of it","Planned — free time is precious, I'm not winging it") },
       ],
     },
     q4_social: {
       id:"q4_social", type:"single",
-      text: y("switching gears — who do you usually go out and do things with?","who's your usual social setup when you go out?"),
+      text: y("👥 Switching gears — who do you usually go out and do things with?","👥 Who's your usual social setup when you go out?"),
       options:[
-        { id:"solo",   label: y("🧍 just me — i like the freedom of going alone","🧍 solo — fully at my own pace, no coordinating") },
-        { id:"pair",   label: y("👥 one person — my partner or whoever i'm closest to","👥 partner or one close friend — that's what i default to") },
-        { id:"small",  label: y("👨‍👩‍👧 small close group — three to five people i actually know","👨‍👩‍👧 small group of people i'm genuinely close to — three to five max") },
-        { id:"large",  label: y("🎉 the whole group — i like the energy when everyone's there","🎉 bigger group — smaller plans can feel underwhelming to me") },
-        { id:"family", label: y("🏠 family, cousins included — honestly some of my best outings","🏠 family — cousins count too, some of my best outings honestly") },
+        { id:"solo",   label: y("Just me — I like the freedom of going alone","Solo — fully at my own pace, no coordinating") },
+        { id:"pair",   label: y("One person — my partner or whoever I'm closest to","Partner or one close friend — that's what I default to") },
+        { id:"small",  label: y("Small close group — three to five people I actually know","Small group of people I'm genuinely close to — three to five max") },
+        { id:"large",  label: y("The full group — I like the energy when everyone's there","Bigger group — smaller plans can feel underwhelming to me") },
+        { id:"family", label: y("Family, cousins included — honestly some of my best outings","Family — cousins count too, honestly some of my best ones") },
       ],
     },
     q5_spont_comfort: {
       id:"q5_spont_comfort", type:"single",
-      text: y("do you plan ahead or go when the mood hits?","how do you prefer to approach plans?"),
+      text: y("🗓️ Do you plan ahead or go when the mood hits?","🗓️ How do you prefer to plan?"),
       options:[
-        { id:"spontaneous", label: y("⚡ whenever the mood hits — advance planning feels wrong","⚡ last minute — if i'm free and in the mood, i go") },
-        { id:"loose",       label: y("📆 a few days ahead is enough — i don't need it all sorted","📆 loose structure — a few days ahead, nothing rigid") },
-        { id:"planned",     label: y("🗓️ i'd rather have it planned — free time is too rare to gamble on","🗓️ planned — free time is precious, i'm not winging it") },
+        { id:"spontaneous", label: y("Whenever the mood hits — advance planning for this feels wrong","Last minute — if I'm free and in the mood, I go") },
+        { id:"loose",       label: y("A few days ahead is enough — I don't need it all sorted","Loose structure — a few days ahead, nothing rigid") },
+        { id:"planned",     label: y("I'd rather have it planned — free time is too rare to gamble","Planned — free time is precious, I'm not winging it") },
       ],
     },
     q6: {
       id:"q6", type:"single",
-      text: y("last proper one. when a plan's genuinely hit right — what made it that way?",
-               "last one. when something's genuinely been worth it — what was at the centre of it?"),
+      text: y("✨ Last proper one. When a plan has genuinely hit right — what was at the centre of it?",
+               "✨ Last one. When something has genuinely been worth it — what was at the centre of it?"),
       options:[
-        { id:"creative",     label: y("🎨 i made or felt something creative — that was the centre of it","🎨 something creative happened — i made it, felt it, or was moved by it") },
-        { id:"intellectual", label: y("💡 i came away thinking differently about something","💡 i came away having thought about something properly") },
-        { id:"physical",     label: y("💪 my body actually did something — i felt it physically","💪 i was physically present — moved, exerted, used my body") },
-        { id:"social",       label: y("🤝 something real happened between me and the people i was with","🤝 the people — something genuine happened between us") },
-        { id:"restorative",  label: y("🍃 i actually switched off and felt restored — lighter coming home","🍃 i genuinely decompressed — came home lighter and more like myself") },
+        { id:"creative",     label: y("I made or felt something creative — that was the whole point of it","Something creative — I made it, experienced it, or was moved by it") },
+        { id:"intellectual", label: y("I walked away thinking differently about something","I came away having thought about something properly") },
+        { id:"physical",     label: y("My body actually did something — I felt it physically","I was physically present — moved, exerted, used my body") },
+        { id:"social",       label: y("Something real happened between me and the people I was with","The people — something genuine happened between us") },
+        { id:"restorative",  label: y("I actually switched off — came home lighter than I arrived","I actually decompressed — came home more like myself") },
       ],
     },
     q7: {
       id:"q7", type:"single",
-      text: y("last one — when you're figuring out what to do with free time, which are you?",
-               "last one — when you're deciding what to do with free time, which sounds like you?"),
+      text: y("🤔 Last one — when you're figuring out what to do with free time, which are you?",
+               "🤔 Last one — when you're deciding what to do with free time, which sounds like you?"),
       options:[
-        { id:"surprise", label: y("🎲 i'd rather just be told what to do — surprise me","🎲 i'd rather someone just make the call — surprise me") },
-        { id:"browse",   label: y("🔍 i'd rather see the options and pick myself","🔍 i'd rather see everything and choose myself") },
-        { id:"hybrid",   label: y("⚖️ a bit of both — some suggestions, some browsing","⚖️ a mix — a starting point, then i'll explore") },
+        { id:"surprise", label: y("I'd rather just be told what to do — surprise me","I'd rather someone just make the call — surprise me") },
+        { id:"browse",   label: y("I'd rather see the options and pick myself","I'd rather see everything and choose myself") },
+        { id:"hybrid",   label: y("A bit of both — some suggestions, some browsing","A mix — a starting point, then I'll explore") },
       ],
     },
   };
@@ -243,10 +243,10 @@ function getFlow(answers, age) {
   flow.push(Q.q6);
   if (answers.q6) {
     flow.push({
-      id:"q6b", type:"single", isSecondary:true, text:"close second?",
+      id:"q6b", type:"single", isSecondary:true, text:"Close second?",
       options: buildQ(age || "y").q6.options
         .filter(o => o.id !== answers.q6)
-        .concat([{ id:"none", label:"nope, just that one ✓" }]),
+        .concat([{ id:"none", label:"Nope, just that one" }]),
     });
   }
   if (answers.q6b !== undefined) flow.push(Q.q7);
@@ -327,6 +327,7 @@ export default function App() {
   const [answers,   setAnswers]   = useState({});
   const [step,      setStep]      = useState(0);
   const [multiSel,  setMultiSel]  = useState([]);
+  const [singleSel, setSingleSel] = useState(null);
   const [myProfile, setMyProfile] = useState(null);
   const [vis,       setVis]       = useState(true);
   const [saving,    setSaving]    = useState(false);
@@ -344,7 +345,7 @@ export default function App() {
   function advance(newAnswers) {
     const nf = getFlow(newAnswers, age);
     if (step + 1 < nf.length) {
-      fade(() => { setStep(s => s + 1); setMultiSel([]); });
+      fade(() => { setStep(s => s + 1); setMultiSel([]); setSingleSel(null); });
     } else {
       finish(newAnswers);
     }
@@ -364,9 +365,12 @@ export default function App() {
   }
 
   function handleSingle(id) {
-    const a = { ...answers, [currentQ.id]: id };
-    setAnswers(a);
-    setTimeout(() => advance(a), 175);
+    setSingleSel(id);
+  }
+
+  function handleSingleNext() {
+    const a = { ...answers, [currentQ.id]: singleSel };
+    setAnswers(a); advance(a);
   }
 
   function handleMultiNext() {
@@ -376,7 +380,7 @@ export default function App() {
 
   function restart() {
     setScreen("home"); setName(""); setAge(null);
-    setAnswers({}); setStep(0); setMultiSel([]);
+    setAnswers({}); setStep(0); setMultiSel([]); setSingleSel(null);
     setMyProfile(null); setVis(true); setSaveErr(null);
   }
 
@@ -395,12 +399,12 @@ export default function App() {
         <div onClick={() => { const n=adminTaps+1; setAdminTaps(n); if(n>=5) openAdmin(); }}
           style={{fontSize:42, marginBottom:20, cursor:"default", userSelect:"none"}}>👋</div>
         <h1 style={{fontFamily:SERIF, fontSize:38, fontWeight:500, color:C.text, margin:"0 0 14px", lineHeight:1.15}}>
-          a few questions.
+          A few questions.
         </h1>
         <p style={{color:C.textSoft, fontSize:15.5, lineHeight:1.65, margin:"0 0 40px"}}>
-          takes about 2 minutes.<br/>there are no wrong answers — just go with your gut.
+          Takes about 2 minutes.<br/>There are no wrong answers — just go with your gut.
         </p>
-        <button onClick={() => setScreen("setup")} style={BTN_PRIMARY}>let's go</button>
+        <button onClick={() => setScreen("setup")} style={BTN_PRIMARY}>Let's go</button>
       </div>
     </div>
   );
@@ -410,18 +414,18 @@ export default function App() {
     <div style={PAGE}>
       <link rel="stylesheet" href={GFONT} />
       <div style={{maxWidth:400, width:"100%"}}>
-        <div style={{fontFamily:SERIF, fontSize:27, fontWeight:500, color:C.text, marginBottom:6}}>first, the basics</div>
-        <p style={{color:C.textSoft, fontSize:14.5, marginBottom:30}}>just two quick things.</p>
-        <label style={LABEL}>your name</label>
+        <div style={{fontFamily:SERIF, fontSize:27, fontWeight:500, color:C.text, marginBottom:6}}>First, the basics</div>
+        <p style={{color:C.textSoft, fontSize:14.5, marginBottom:30}}>Just two quick things.</p>
+        <label style={LABEL}>Your name</label>
         <input value={name} onChange={e=>setName(e.target.value)}
           onKeyDown={e=>{ if(e.key==="Enter"&&name.trim()&&age){setStep(0);setScreen("quiz");}}}
-          placeholder="first name is fine" autoFocus
+          placeholder="First name is fine" autoFocus
           style={{ width:"100%", background:C.card, borderRadius:14, padding:"14px 16px",
             fontSize:15.5, color:C.text, fontFamily:SANS, outline:"none", boxSizing:"border-box",
             marginBottom:26, boxShadow:SHADOW_SM, transition:"border-color 0.15s",
             border:`1.5px solid ${name.trim() ? C.borderHi : C.border}`,
           }} />
-        <label style={LABEL}>your age</label>
+        <label style={LABEL}>Your age</label>
         <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginBottom:34}}>
           {[{id:"y",label:"18 – 25"},{id:"o",label:"26 or over"}].map(opt=>(
             <button key={opt.id} onClick={()=>setAge(opt.id)} style={{
@@ -467,11 +471,23 @@ export default function App() {
             fontWeight: 500, lineHeight:1.4, color:C.text, margin:"0 0 28px",
           }}>{currentQ.text}</p>
 
-          {currentQ.type === "single" && currentQ.options.map(opt => (
-            <Opt key={opt.id} label={opt.label}
-              selected={answers[currentQ.id]===opt.id}
-              onClick={()=>handleSingle(opt.id)} />
-          ))}
+          {currentQ.type === "single" && (<>
+            {currentQ.options.map(opt => (
+              <Opt key={opt.id} label={opt.label}
+                selected={singleSel===opt.id}
+                onClick={()=>handleSingle(opt.id)} />
+            ))}
+            <div style={{display:"flex",justifyContent:"flex-end",alignItems:"center",marginTop:8}}>
+              <button onClick={handleSingleNext} disabled={singleSel===null} style={{
+                background: singleSel!==null ? C.accent : C.dim,
+                color: singleSel!==null ? "#fff" : C.muted,
+                border:"none", borderRadius:12, padding:"11px 24px",
+                fontSize:14.5, fontWeight:600, fontFamily:SANS,
+                cursor: singleSel!==null ? "pointer" : "not-allowed",
+                transition:"all 0.13s ease",
+              }}>next →</button>
+            </div>
+          </>)}
 
           {currentQ.type === "multi" && (<>
             {currentQ.options.map(opt => (
