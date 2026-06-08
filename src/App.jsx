@@ -549,6 +549,8 @@ export default function App() {
               }}>next →</button>
             </div>
           </>)}
+
+          {currentQ.type === "multi" && (<>
             {currentQ.options.map(opt => (
               <Opt key={opt.id} label={opt.label}
                 selected={multiSel.includes(opt.id)}
