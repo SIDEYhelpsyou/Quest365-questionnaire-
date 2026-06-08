@@ -236,8 +236,171 @@ function buildQ(age) {
 }
 
 // ── FLOW ─────────────────────────────────────────────────────────
-function getFlow(answers, age) {
-  const Q = buildQ(age || "y");
+
+// ── HINDI QUESTIONS ───────────────────────────────────────────────
+function buildQHindi() {
+  return {
+    q1: {
+      id:"q1", type:"single",
+      text:"आज, अभी — इनमें से कौन सा ज़्यादा आपके जैसा लगता है?",
+      options:[
+        { id:"novelty",  label:"कुछ नया — दोहराने से बेहतर है खोजना" },
+        { id:"comfort",  label:"कुछ जाना-पहचाना — जो काम करता है वो पक्का है" },
+        { id:"balanced", label:"आज के मूड पर निर्भर है" },
+      ],
+    },
+    q2a: {
+      id:"q2a", type:"single",
+      text:"जब कुछ नया आज़माते हैं, तो क्या बात खींचती है आपको?",
+      options:[
+        { id:"discovery",   label:"कुछ ऐसा जो पहले कभी नहीं किया — बस यही काफी है" },
+        { id:"story",       label:"एक किस्सा जो बाद में दोस्तों को सुना सकें" },
+        { id:"growth",      label:"जहाँ कुछ नया सीखने को मिले, चाहे थोड़ा ही सही" },
+        { id:"vibe",        label:"जगह का माहौल और ऊर्जा — बाकी सब बाद में" },
+        { id:"spontaneous", label:"किसी ने कहा 'चलो' और चल दिए — बस इतना काफी है" },
+      ],
+    },
+    q2b: {
+      id:"q2b", type:"single",
+      text:"बाहर जाने की सोचते हैं तो सबसे पहले क्या मन में आता है?",
+      options:[
+        { id:"mood",      label:"माहौल कैसा होगा — जगह, रोशनी, वो feeling" },
+        { id:"people",    label:"कौन साथ होगा — सही लोग हों तो सब ठीक" },
+        { id:"activity",  label:"क्या करना है — activity पहले, बाकी बाद में" },
+        { id:"discovery", label:"कुछ नया मिले — नई जगह या नया तजुर्बा" },
+        { id:"ease",      label:"जाना कितना आसान है — कोई झंझट नहीं" },
+      ],
+    },
+    q2c: {
+      id:"q2c", type:"single",
+      text:"किसी जगह या plan पर भरोसा कब होता है?",
+      options:[
+        { id:"known-place",  label:"पहले जा चुके हैं — पता है क्या मिलेगा" },
+        { id:"known-format", label:"इस तरह की activity पहले की है — तरीका जानते हैं" },
+        { id:"company",      label:"सही लोग साथ हों — तो जगह मायने नहीं रखती" },
+        { id:"expectation",  label:"पहले से पता हो क्या होगा — कोई surprise नहीं" },
+        { id:"friction",     label:"जाना आसान हो — रास्ते की परेशानी नहीं चाहिए" },
+      ],
+    },
+    q3a: {
+      id:"q3a", type:"rank",
+      text:"👥 नई चीज़ आज़माते वक्त साथ में कौन हो — preference के हिसाब से चुनें।",
+      options:[
+        { id:"solo",  label:"अकेले — अपनी रफ़्तार से, कोई compromise नहीं" },
+        { id:"pair",  label:"एक करीबी — दो लोग सही रहते हैं" },
+        { id:"small", label:"छोटा ग्रुप — 3-4 लोग जिन्हें जानते हैं" },
+        { id:"large", label:"पूरी टोली — जितने ज़्यादा उतना मज़ा" },
+        { id:"open",  label:"नए लोगों से मिलना भी ठीक — बाहर हैं तो क्यों नहीं" },
+      ],
+    },
+    q3b: {
+      id:"q3b", type:"rank",
+      text:"👥 आमतौर पर किसके साथ बाहर जाते हैं? Preference के हिसाब से चुनें।",
+      options:[
+        { id:"solo",     label:"अकेले — लोगों को लगता है कम, पर मुझे पसंद है" },
+        { id:"pair",     label:"एक साथी — यही default है मेरा" },
+        { id:"small",    label:"छोटा ग्रुप — पूरे group chat वाले नहीं" },
+        { id:"large",    label:"बड़ा ग्रुप — कम लोगों में मज़ा अधूरा लगता है" },
+        { id:"flexible", label:"depend करता है — activity तय करती है" },
+      ],
+    },
+    q3c: {
+      id:"q3c", type:"single",
+      text:"💪 जो अच्छा लगता है उसमें कितनी मेहनत लगाना पसंद है?",
+      options:[
+        { id:"high",     label:"ज़्यादा — घर आकर feel होना चाहिए कि कुछ किया" },
+        { id:"medium",   label:"बीच का — न बहुत थकान, न बोरियत" },
+        { id:"low",      label:"कम — आराम से, बिना ज़्यादा effort के" },
+        { id:"variable", label:"मूड देखकर — हर बार अलग होता है" },
+      ],
+    },
+    q4_effort: {
+      id:"q4_effort", type:"single",
+      text:"💪 नई चीज़ें आज़माते वक्त कितनी energy लगाना चाहते हैं?",
+      options:[
+        { id:"high",     label:"ज़्यादा — घर आकर feel हो कि कुछ किया" },
+        { id:"medium",   label:"बीच का — engaged रहें, थके नहीं" },
+        { id:"low",      label:"कम — नई चीज़ें हों पर आराम से" },
+        { id:"variable", label:"मूड पर निर्भर है" },
+      ],
+    },
+    q4_spont: {
+      id:"q4_spont", type:"single",
+      text:"🗓️ Plan बनाने के बारे में क्या सोचते हैं?",
+      options:[
+        { id:"spontaneous", label:"जब मन हो तब — last minute में तय हो तो और मज़ा" },
+        { id:"loose",       label:"कुछ idea हो पर सब fix न हो" },
+        { id:"planned",     label:"calendar में हो — आगे देखने का अलग मज़ा है" },
+        { id:"variable",    label:"कभी spontaneous, कभी planned" },
+      ],
+    },
+    q4_social: {
+      id:"q4_social", type:"rank",
+      text:"👥 किसके साथ बाहर जाना पसंद है? Preference के हिसाब से चुनें।",
+      options:[
+        { id:"solo",   label:"अकेले — अपनी मर्ज़ी, अपनी रफ़्तार" },
+        { id:"pair",   label:"एक खास साथी — सबसे करीबी" },
+        { id:"small",  label:"छोटा ग्रुप — 3-5 ऐसे लोग जिन्हें जानते हैं" },
+        { id:"large",  label:"बड़ा ग्रुप — कम लोगों में अधूरा लगता है" },
+        { id:"family", label:"परिवार — cousins भी, कुछ best outings यही होती हैं" },
+      ],
+    },
+    q5_spont: {
+      id:"q5_spont", type:"single",
+      text:"🗓️ Plan आमतौर पर कैसे बनता है?",
+      options:[
+        { id:"spontaneous", label:"अचानक — 'चलते हैं?' सुना और निकल गए" },
+        { id:"loose",       label:"थोड़ा idea हो, बाकी देखते हैं" },
+        { id:"planned",     label:"पहले से तय — calendar में होना चाहिए" },
+        { id:"variable",    label:"depend करता है — कभी कुछ भी, कभी सब fix" },
+      ],
+    },
+    q5_effort: {
+      id:"q5_effort", type:"single",
+      text:"💪 बाहर जाने पर कितनी energy लगाना पसंद है?",
+      options:[
+        { id:"high",     label:"ज़्यादा — घर आकर feel हो कि कुछ किया" },
+        { id:"medium",   label:"बीच का — थकान नहीं पर बोरियत भी नहीं" },
+        { id:"low",      label:"कम — आराम से enjoy करना है" },
+        { id:"variable", label:"हर बार अलग होता है" },
+      ],
+    },
+    q5_spont_comfort: {
+      id:"q5_spont_comfort", type:"single",
+      text:"🗓️ Plan बनाना कितना पसंद है?",
+      options:[
+        { id:"spontaneous", label:"बहुत कम — अचानक निकलना ज़्यादा अच्छा लगता है" },
+        { id:"loose",       label:"थोड़ा ढाँचा हो, बाकी flexible रहे" },
+        { id:"planned",     label:"पूरा plan — calendar में होना ज़रूरी है" },
+        { id:"variable",    label:"depend करता है — mood देखकर" },
+      ],
+    },
+    q6: {
+      id:"q6", type:"single",
+      text:"✨ जब कोई plan सच में अच्छा लगा हो — उसके बीच में क्या था?",
+      options:[
+        { id:"creative",     label:"कुछ बनाया या किसी चीज़ से genuinely प्रभावित हुए" },
+        { id:"intellectual", label:"कुछ ऐसा जिसने सोचने पर मजबूर किया — नया नज़रिया मिला" },
+        { id:"physical",     label:"शरीर को लगाया — खेल, चढ़ाई, कुछ physically करना" },
+        { id:"social",       label:"लोग — बातचीत, हँसी, असली connection" },
+        { id:"restorative",  label:"सुकून — शोर से दूर, कुछ शांत" },
+      ],
+    },
+    q7: {
+      id:"q7", type:"single",
+      text:"🤔 आखिरी सवाल — खाली वक्त में क्या करें, यह सोचते वक्त कैसे होते हैं?",
+      options:[
+        { id:"browse",   label:"options देखकर decide करते हैं — थोड़ा browse करना पसंद है" },
+        { id:"surprise", label:"बस surprise करो — खुद decide नहीं करना" },
+        { id:"choose",   label:"खुद चुनते हैं — सुझाव ठीक है पर decide खुद करना है" },
+        { id:"hybrid",   label:"थोड़ा दोनों — एक idea दो, बाकी खुद देख लेंगे" },
+      ],
+    },
+  };
+}
+
+function getFlow(answers, age, lang) {
+  const Q = lang === "hi" ? buildQHindi() : buildQ(age || "y");
   if (!answers.q1) return [Q.q1];
   const flow = [Q.q1];
   if (answers.q1 === "novelty")       flow.push(Q.q2a, Q.q3a, Q.q4_effort, Q.q5_spont);
@@ -246,10 +409,11 @@ function getFlow(answers, age) {
   flow.push(Q.q6);
   if (answers.q6) {
     flow.push({
-      id:"q6b", type:"single", isSecondary:true, text:"Close second?",
-      options: buildQ(age || "y").q6.options
+      id:"q6b", type:"single", isSecondary:true,
+      text: lang === "hi" ? "दूसरा करीबी?" : "Close second?",
+      options: (lang === "hi" ? buildQHindi() : buildQ(age || "y")).q6.options
         .filter(o => o.id !== answers.q6)
-        .concat([{ id:"none", label:"Nope, just that one" }]),
+        .concat([{ id:"none", label: lang === "hi" ? "नहीं, बस वही एक" : "Nope, just that one" }]),
     });
   }
   if (answers.q6b !== undefined) flow.push(Q.q7);
@@ -375,15 +539,16 @@ export default function App() {
   const [profiles,  setProfiles]  = useState([]);
   const [loading,   setLoading]   = useState(false);
   const [adminTaps, setAdminTaps] = useState(0);
+  const [lang,      setLang]      = useState("en");
 
-  const flow     = getFlow(answers, age);
+  const flow     = getFlow(answers, age, lang);
   const currentQ = flow[step] || null;
   const pct      = flow.length > 1 ? (step / (flow.length - 1)) * 100 : 0;
 
   const fade = (fn) => { setVis(false); setTimeout(() => { fn(); setVis(true); }, 155); };
 
   function advance(newAnswers) {
-    const nf = getFlow(newAnswers, age);
+    const nf = getFlow(newAnswers, age, lang);
     if (step + 1 < nf.length) {
       fade(() => { setStep(s => s + 1); setMultiSel([]); setSingleSel(null); });
     } else {
@@ -438,14 +603,25 @@ export default function App() {
       <div style={{maxWidth:400, width:"100%", textAlign:"center"}}>
         <div onClick={() => { const n=adminTaps+1; setAdminTaps(n); if(n>=5) openAdmin(); }}
           style={{fontSize:42, marginBottom:20, cursor:"default", userSelect:"none"}}>👋</div>
+        <div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:22}}>
+          {["en","hi"].map(l=>(
+            <button key={l} onClick={()=>setLang(l)} style={{
+              padding:"6px 18px", borderRadius:20, fontSize:13, fontFamily:SANS,
+              border:`1.5px solid ${lang===l?C.accent:C.border}`,
+              background:lang===l?C.accentSoft:C.card,
+              color:lang===l?C.accentDeep:C.muted,
+              cursor:"pointer", fontWeight:lang===l?600:400,
+            }}>{l==="en"?"English":"हिंदी"}</button>
+          ))}
+        </div>
         <h1 style={{fontFamily:SERIF, fontSize:38, fontWeight:500, color:C.text, margin:"0 0 14px", lineHeight:1.15}}>
-          A few questions.
+          {lang==="hi" ? "कुछ सवाल।" : "A few questions."}
         </h1>
         <p style={{color:C.textSoft, fontSize:15.5, lineHeight:1.65, margin:"0 0 40px"}}>
-          This is where we start. Not where we stop.<br/>
-          <span style={{fontSize:14, color:C.muted}}>About 2 minutes — go with your gut.</span>
+          {lang==="hi" ? "यहाँ से शुरुआत है। यहाँ खत्म नहीं।" : "This is where we start. Not where we stop."}<br/>
+          <span style={{fontSize:14, color:C.muted}}>{lang==="hi" ? "बस 2 मिनट — जो मन में आए वो चुनें।" : "About 2 minutes — go with your gut."}</span>
         </p>
-        <button onClick={() => setScreen("setup")} style={BTN_PRIMARY}>Let's go</button>
+        <button onClick={() => setScreen("setup")} style={BTN_PRIMARY}>{lang==="hi"?"शुरू करें →":"Let's go"}</button>
       </div>
     </div>
   );
@@ -455,20 +631,20 @@ export default function App() {
     <div style={PAGE}>
       <link rel="stylesheet" href={GFONT} />
       <div style={{maxWidth:400, width:"100%"}}>
-        <div style={{fontFamily:SERIF, fontSize:27, fontWeight:500, color:C.text, marginBottom:6}}>First, the basics</div>
-        <p style={{color:C.textSoft, fontSize:14.5, marginBottom:30}}>Just two quick things.</p>
-        <label style={LABEL}>Your name</label>
+        <div style={{fontFamily:SERIF, fontSize:27, fontWeight:500, color:C.text, marginBottom:6}}>{lang==="hi"?"पहले, थोड़ी जानकारी":"First, the basics"}</div>
+        <p style={{color:C.textSoft, fontSize:14.5, marginBottom:30}}>{lang==="hi"?"बस दो छोटी बातें।":"Just two quick things."}</p>
+        <label style={LABEL}>{lang==="hi"?"आपका नाम":"Your name"}</label>
         <input value={name} onChange={e=>setName(e.target.value)}
           onKeyDown={e=>{ if(e.key==="Enter"&&name.trim()&&age){setStep(0);setScreen("quiz");}}}
-          placeholder="First name is fine" autoFocus
+          placeholder={lang==="hi"?"पहला नाम काफी है":"First name is fine"} autoFocus
           style={{ width:"100%", background:C.card, borderRadius:14, padding:"14px 16px",
             fontSize:15.5, color:C.text, fontFamily:SANS, outline:"none", boxSizing:"border-box",
             marginBottom:26, boxShadow:SHADOW_SM, transition:"border-color 0.15s",
             border:`1.5px solid ${name.trim() ? C.borderHi : C.border}`,
           }} />
-        <label style={LABEL}>Your age</label>
+        <label style={LABEL}>{lang==="hi"?"आपकी उम्र":"Your age"}</label>
         <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginBottom:34}}>
-          {[{id:"y",label:"18 – 25"},{id:"o",label:"26 or over"}].map(opt=>(
+          {[{id:"y",label:"18 – 25"},{id:"o",label:lang==="hi"?"26 या उससे ज़्यादा":"26 or over"}].map(opt=>(
             <button key={opt.id} onClick={()=>setAge(opt.id)} style={{
               padding:"16px 12px", borderRadius:14, fontSize:15.5, fontWeight:600,
               cursor:"pointer", fontFamily:SANS, transition:"all 0.13s ease",
@@ -481,8 +657,8 @@ export default function App() {
         </div>
         <button onClick={()=>{setStep(0);setScreen("quiz");}} disabled={!name.trim()||!age}
           style={{...BTN_PRIMARY, opacity:name.trim()&&age?1:0.38,
-            cursor:name.trim()&&age?"pointer":"not-allowed"}}>continue</button>
-        <button onClick={()=>setScreen("home")} style={BTN_GHOST}>← back</button>
+            cursor:name.trim()&&age?"pointer":"not-allowed"}}>{lang==="hi"?"आगे बढ़ें":"continue"}</button>
+        <button onClick={()=>setScreen("home")} style={BTN_GHOST}>{lang==="hi"?"← वापस":"← back"}</button>
       </div>
     </div>
   );
@@ -503,7 +679,7 @@ export default function App() {
           transition:"opacity 0.15s ease, transform 0.15s ease" }}>
           {currentQ.isSecondary && (
             <div style={{fontSize:13, color:C.muted, marginBottom:14}}>
-              you picked <span style={{color:C.accentDeep,fontWeight:500}}>{RM[answers.q6]}</span> — does anything else come close?
+              {lang==="hi" ? <>आपने <span style={{color:C.accentDeep,fontWeight:500}}>{RM_HI[answers.q6]}</span> चुना — कोई और करीब आता है?</> : <>you picked <span style={{color:C.accentDeep,fontWeight:500}}>{RM[answers.q6]}</span> — does anything else come close?</>}
             </div>
           )}
           <p style={{
@@ -526,18 +702,18 @@ export default function App() {
                 fontSize:14.5, fontWeight:600, fontFamily:SANS,
                 cursor: singleSel!==null ? "pointer" : "not-allowed",
                 transition:"all 0.13s ease",
-              }}>next →</button>
+              }}>{lang==="hi"?"अगला →":"next →"}</button>
             </div>
           </>)}
 
           {currentQ.type === "rank" && (<>
             <p style={{fontSize:12.5, color:C.muted, marginBottom:16, lineHeight:1.5}}>
-              Tap your first preference, then second, and so on. Tap again to remove.
+              {lang==="hi" ? "पहली पसंद पर tap करें, फिर दूसरी, और आगे। हटाना हो तो फिर से tap करें।" : "Tap your first preference, then second, and so on. Tap again to remove."}
             </p>
             <Rank options={currentQ.options} value={multiSel} onChange={setMultiSel} />
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:8}}>
               <span style={{color:C.muted,fontSize:13.5}}>
-                {multiSel.length === 0 ? "tap to rank" : multiSel.length === 1 ? "tap more to rank further" : `${multiSel.length} ranked`}
+                {lang==="hi" ? (multiSel.length===0?"tap करके चुनें":multiSel.length===1?"और चुन सकते हैं":`${multiSel.length} चुने`) : (multiSel.length===0?"tap to rank":multiSel.length===1?"tap more to rank further":`${multiSel.length} ranked`)}
               </span>
               <button onClick={handleMultiNext} disabled={multiSel.length===0} style={{
                 background: multiSel.length>0 ? C.accent : C.dim,
@@ -546,7 +722,7 @@ export default function App() {
                 fontSize:14.5, fontWeight:600, fontFamily:SANS,
                 cursor: multiSel.length>0 ? "pointer" : "not-allowed",
                 transition:"all 0.13s ease",
-              }}>next →</button>
+              }}>{lang==="hi"?"अगला →":"next →"}</button>
             </div>
           </>)}
 
@@ -586,19 +762,19 @@ export default function App() {
       <div style={{maxWidth:420, width:"100%"}}>
         <div style={{textAlign:"center", marginBottom:30}}>
           <div style={{fontSize:36, marginBottom:14}}>{saving ? "⏳" : saveErr ? "⚠️" : "✨"}</div>
-          <div style={{fontSize:11,letterSpacing:3,color:C.muted,textTransform:"uppercase",marginBottom:10}}>here's you</div>
+          <div style={{fontSize:11,letterSpacing:3,color:C.muted,textTransform:"uppercase",marginBottom:10}}>{lang==="hi"?"यह रहे आप":"here's you"}</div>
           <h2 style={{fontFamily:SERIF,fontSize:34,fontWeight:500,color:C.text,margin:0}}>{myProfile.name}</h2>
-          {saving && <p style={{color:C.muted,fontSize:13,marginTop:8}}>saving your answers...</p>}
+          {saving && <p style={{color:C.muted,fontSize:13,marginTop:8}}>{lang==="hi"?"जवाब save हो रहे हैं...":"saving your answers..."}</p>}
           {saveErr && <p style={{color:"#c0392b",fontSize:13,marginTop:8}}>{saveErr}</p>}
         </div>
         <ProfileCard p={myProfile} />
         <p style={{color:C.muted,fontSize:13.5,textAlign:"center",lineHeight:1.6,margin:"20px 0 8px"}}>
-          thanks for filling this in — it really helps.
+          {lang==="hi"?"शुक्रिया — इससे सच में मदद मिलती है।":"thanks for filling this in — it really helps."}
         </p>
         <p style={{color:C.muted,fontSize:12.5,textAlign:"center",lineHeight:1.6,margin:"0 0 22px",fontStyle:"italic"}}>
-          This is a starting point, not a verdict — it changes as you do.
+          {lang==="hi"?"यह शुरुआत है, verdict नहीं — आप बदलेंगे तो यह भी बदलेगा।":"This is a starting point, not a verdict — it changes as you do."}
         </p>
-        <button onClick={restart} style={BTN_GHOST}>done</button>
+        <button onClick={restart} style={BTN_GHOST}>{lang==="hi"?"हो गया":"done"}</button>
       </div>
     </div>
   );
