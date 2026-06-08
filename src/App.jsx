@@ -111,15 +111,16 @@ function buildQ(age) {
                "✅ When something feels reliable and worth it — what's usually at the root of that? Pick 2."),
       options:[
         { id:"known-place",  label: y("I've been before and I know exactly what I'm getting","It's somewhere I've been before and it's earned its place") },
-        { id:"known-format", label: y("It's a format I genuinely enjoy and have done before","It's a format I'm comfortable with — variety within it is fine") },
+        { id:"known-format", label: y("It's a type of activity I genuinely enjoy — variety within it is fine","It's something I'm comfortable with — the format is familiar even if the place isn't") },
         { id:"company",      label: y("I'm going with the right people — the company matters more than the plan","The right company — who I'm with matters more than where I'm going") },
-        { id:"expectation",  label: y("I know what to expect walking in — no surprises, no figuring it out","I know what I'm walking into — predictable in the good sense") },
+        { id:"expectation",  label: y("It's a type of activity I've done before — I know how it goes","It's a type of experience I've done before — I know what I'm walking into") },
         { id:"friction",     label: y("It's easy to get to — I'm not fighting the city to get there","It's low-friction to get there — the experience starts before I arrive") },
       ],
     },
     q3a: {
-      id:"q3a", type:"single",
-      text: y("👥 Who do you want with you when you're trying something new?","👥 What's the right social setup when you're discovering something new?"),
+      id:"q3a", type:"rank",
+      text: y("👥 Who do you want with you when trying something new? Tap in order of preference.",
+               "👥 What's the right social setup when discovering something new? Tap in order of preference."),
       options:[
         { id:"solo",  label: y("Just me — I move faster and I don't have to compromise","Solo — fully at my own pace, no coordinating required") },
         { id:"pair",  label: y("One person, whoever I'm closest to right now","One person I genuinely want there with me") },
@@ -129,8 +130,9 @@ function buildQ(age) {
       ],
     },
     q3b: {
-      id:"q3b", type:"single",
-      text: y("👥 Who do you usually end up going out with?","👥 What's your usual social setup when you go out?"),
+      id:"q3b", type:"rank",
+      text: y("👥 Who do you usually end up going out with? Tap in order of preference.",
+               "👥 What's your usual social setup? Tap in order of preference."),
       options:[
         { id:"solo",     label: y("On my own, honestly — more than people might expect","Solo — I've learned I genuinely prefer my own company for a lot of this") },
         { id:"pair",     label: y("One person — two is genuinely the right dynamic for me","Partner or one close friend — that's the unit I default to") },
@@ -153,7 +155,7 @@ function buildQ(age) {
       id:"q4_effort", type:"single",
       text: y("💪 How much do you actually want to be doing when you're out?","💪 How much do you want to put into the experience itself?"),
       options:[
-        { id:"high",     label: y("A lot — passive feels like a waste of going out","High — I'd rather push myself and feel it afterwards") },
+        { id:"high",     label: y("A lot — I want to come home feeling like I actually did something","High — I'd rather push myself and feel it afterwards") },
         { id:"medium",   label:"Active and present, but not at my limit" },
         { id:"low",      label: y("Low — I want to arrive and enjoy without working for it","Low — arrive, settle in, let it come to me") },
         { id:"variable", label: y("Honestly depends on how my week's been","Varies week to week — a rough few days changes everything") },
@@ -165,7 +167,7 @@ function buildQ(age) {
       options:[
         { id:"spontaneous", label: y("Last minute — something comes up and I just go","Last minute — if I'm free and in the mood, I go") },
         { id:"loose",       label: y("A couple of days ahead — rough idea, that's enough","Loose structure — a few days ahead, nothing rigid") },
-        { id:"planned",     label: y("I like it locked in — I'm more likely to actually show up","Planned — free time is precious, I'm not winging it") },
+        { id:"planned",     label: y("I like it in the calendar — having something to look forward to is part of it","Planned — free time is precious, I'm not winging it") },
       ],
     },
     q5_effort: {
@@ -188,8 +190,9 @@ function buildQ(age) {
       ],
     },
     q4_social: {
-      id:"q4_social", type:"single",
-      text: y("👥 Switching gears — who do you usually go out and do things with?","👥 Who's your usual social setup when you go out?"),
+      id:"q4_social", type:"rank",
+      text: y("👥 Who do you go out and do things with? Tap in order of preference.",
+               "👥 What's your social setup preference? Tap in order."),
       options:[
         { id:"solo",   label: y("Just me — I like the freedom of going alone","Solo — fully at my own pace, no coordinating") },
         { id:"pair",   label: y("One person — my partner or whoever I'm closest to","Partner or one close friend — that's what I default to") },
@@ -209,10 +212,10 @@ function buildQ(age) {
     },
     q6: {
       id:"q6", type:"single",
-      text: y("✨ Last proper one. When a plan has genuinely hit right — what was at the centre of it?",
-               "✨ Last one. When something has genuinely been worth it — what was at the centre of it?"),
+      text: y("✨ When a plan has genuinely hit right — what was at the centre of it?",
+               "✨ When something has genuinely been worth it — what was at the centre of it?"),
       options:[
-        { id:"creative",     label: y("I made or felt something creative — that was the whole point of it","Something creative — I made it, experienced it, or was moved by it") },
+        { id:"creative",     label: y("I made something or was genuinely moved by something — that was the whole point","Something creative — I made it, experienced it, or was moved by it") },
         { id:"intellectual", label: y("I walked away thinking differently about something","I came away having thought about something properly") },
         { id:"physical",     label: y("My body actually did something — I felt it physically","I was physically present — moved, exerted, used my body") },
         { id:"social",       label: y("Something real happened between me and the people I was with","The people — something genuine happened between us") },
@@ -224,7 +227,7 @@ function buildQ(age) {
       text: y("🤔 Last one — when you're figuring out what to do with free time, which are you?",
                "🤔 Last one — when you're deciding what to do with free time, which sounds like you?"),
       options:[
-        { id:"surprise", label: y("I'd rather just be told what to do — surprise me","I'd rather someone just make the call — surprise me") },
+        { id:"surprise", label: y("Just surprise me — I'd rather not have to decide","I'd rather someone just make the call — surprise me") },
         { id:"browse",   label: y("I'd rather see the options and pick myself","I'd rather see everything and choose myself") },
         { id:"hybrid",   label: y("A bit of both — some suggestions, some browsing","A mix — a starting point, then I'll explore") },
       ],
@@ -239,7 +242,7 @@ function getFlow(answers, age) {
   const flow = [Q.q1];
   if (answers.q1 === "novelty")       flow.push(Q.q2a, Q.q3a, Q.q4_effort, Q.q5_spont);
   else if (answers.q1 === "balanced") flow.push(Q.q2b, Q.q3b, Q.q4_spont,  Q.q5_effort);
-  else                                flow.push(Q.q2c, Q.q3c, Q.q4_social,  Q.q5_spont_comfort);
+  else                                flow.push(Q.q2c, Q.q4_social, Q.q3c, Q.q5_spont_comfort);
   flow.push(Q.q6);
   if (answers.q6) {
     flow.push({
@@ -267,7 +270,7 @@ function buildProfile(name, age, answers) {
     registerSecondary: (answers.q6b && answers.q6b !== "none") ? RM[answers.q6b] : null,
     effort:            EM[answers.q4_effort || answers.q5_effort || answers.q3c] || "-",
     spontaneity:       SM[answers.q4_spont  || answers.q5_spont  || answers.q5_spont_comfort] || "-",
-    social:            SCM[answers.q3a || answers.q3b || answers.q4_social] || "-",
+    social:            (() => { const r = answers.q3a || answers.q3b || answers.q4_social; if (!r) return "-"; if (Array.isArray(r)) return r.map(id => SCM[id]).filter(Boolean).join(" > "); return SCM[r] || "-"; })(),
     decisionStyle:     DM[answers.q7] || "-",
     rawAnswers:        answers,
     timestamp:         Date.now(),
@@ -289,6 +292,43 @@ function Opt({ label, selected, onClick, faded }) {
       boxShadow: selected ? "none" : SHADOW_SM,
       transition:"all 0.13s ease",
     }}>{label}</button>
+  );
+}
+
+function Rank({ options, value, onChange }) {
+  const toggle = (id) => {
+    if (value.includes(id)) onChange(value.filter(x => x !== id));
+    else onChange([...value, id]);
+  };
+  return (
+    <>
+      {options.map(opt => {
+        const rank = value.indexOf(opt.id);
+        const selected = rank !== -1;
+        return (
+          <button key={opt.id} onClick={() => toggle(opt.id)} style={{
+            display:"flex", alignItems:"center", gap:12,
+            width:"100%", textAlign:"left",
+            padding:"14px 16px", marginBottom:10, borderRadius:14,
+            border:`1.5px solid ${selected ? C.accent : C.border}`,
+            background: selected ? C.accentSoft : C.card,
+            color: selected ? C.accentDeep : C.text,
+            fontSize:15, lineHeight:1.5, fontFamily:SANS,
+            cursor:"pointer", boxShadow: selected ? "none" : SHADOW_SM,
+            transition:"all 0.13s ease",
+          }}>
+            <span style={{
+              minWidth:24, height:24, borderRadius:12, flexShrink:0,
+              background: selected ? C.accent : C.dim,
+              color: selected ? "#fff" : C.muted,
+              display:"flex", alignItems:"center", justifyContent:"center",
+              fontSize:12, fontWeight:700, transition:"all 0.13s ease",
+            }}>{selected ? rank + 1 : ""}</span>
+            <span>{opt.label}</span>
+          </button>
+        );
+      })}
+    </>
   );
 }
 
@@ -402,7 +442,8 @@ export default function App() {
           A few questions.
         </h1>
         <p style={{color:C.textSoft, fontSize:15.5, lineHeight:1.65, margin:"0 0 40px"}}>
-          Takes about 2 minutes.<br/>There are no wrong answers — just go with your gut.
+          This is where we start. Not where we stop.<br/>
+          <span style={{fontSize:14, color:C.muted}}>About 2 minutes — go with your gut.</span>
         </p>
         <button onClick={() => setScreen("setup")} style={BTN_PRIMARY}>Let's go</button>
       </div>
@@ -489,7 +530,25 @@ export default function App() {
             </div>
           </>)}
 
-          {currentQ.type === "multi" && (<>
+          {currentQ.type === "rank" && (<>
+            <p style={{fontSize:12.5, color:C.muted, marginBottom:16, lineHeight:1.5}}>
+              Tap your first preference, then second, and so on. Tap again to remove.
+            </p>
+            <Rank options={currentQ.options} value={multiSel} onChange={setMultiSel} />
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:8}}>
+              <span style={{color:C.muted,fontSize:13.5}}>
+                {multiSel.length === 0 ? "tap to rank" : multiSel.length === 1 ? "tap more to rank further" : `${multiSel.length} ranked`}
+              </span>
+              <button onClick={handleMultiNext} disabled={multiSel.length===0} style={{
+                background: multiSel.length>0 ? C.accent : C.dim,
+                color: multiSel.length>0 ? "#fff" : C.muted,
+                border:"none", borderRadius:12, padding:"11px 24px",
+                fontSize:14.5, fontWeight:600, fontFamily:SANS,
+                cursor: multiSel.length>0 ? "pointer" : "not-allowed",
+                transition:"all 0.13s ease",
+              }}>next →</button>
+            </div>
+          </>)}
             {currentQ.options.map(opt => (
               <Opt key={opt.id} label={opt.label}
                 selected={multiSel.includes(opt.id)}
@@ -531,8 +590,11 @@ export default function App() {
           {saveErr && <p style={{color:"#c0392b",fontSize:13,marginTop:8}}>{saveErr}</p>}
         </div>
         <ProfileCard p={myProfile} />
-        <p style={{color:C.muted,fontSize:13.5,textAlign:"center",lineHeight:1.6,margin:"20px 0 22px"}}>
+        <p style={{color:C.muted,fontSize:13.5,textAlign:"center",lineHeight:1.6,margin:"20px 0 8px"}}>
           thanks for filling this in — it really helps.
+        </p>
+        <p style={{color:C.muted,fontSize:12.5,textAlign:"center",lineHeight:1.6,margin:"0 0 22px",fontStyle:"italic"}}>
+          This is a starting point, not a verdict — it changes as you do.
         </p>
         <button onClick={restart} style={BTN_GHOST}>done</button>
       </div>
