@@ -86,11 +86,11 @@ function buildQ(age) {
       id:"q2a", type:"multi", cap:2,
       text: y("🔍 And what kind of new are we actually talking? Pick 2.","🔍 What does 'new' usually mean for you? Pick 2."),
       options:[
-        { id:"place",        label: y("A place I've never been — somewhere off my usual circuit entirely","A place I'd never have found on my own — new area, hidden spot") },
-        { id:"intellectual", label: y("Something that will genuinely make me think","Something I'll walk away from having genuinely thought about") },
-        { id:"social",       label: y("Meeting people outside my usual circle — the social surprise is the draw","An experience where I might meet someone interesting outside my usual group") },
-        { id:"physical",     label: y("Something active I haven't tried before — a new sport, class, or trail","Something physical I haven't done before — I want to feel it") },
-        { id:"creative",     label: y("Something creative — making something, or being moved by something made","Something creative or artistic — making or witnessing something that lands") },
+        { id:"place",        label: y("A place I've never been — somewhere off my usual circuit entirely","Somewhere completely off my usual map") },
+        { id:"intellectual", label: y("Something that will genuinely make me think","Something that'll make me think") },
+        { id:"social",       label: y("Meeting people outside my usual circle — the social surprise is the draw","A chance to meet someone outside my usual circle") },
+        { id:"physical",     label: y("Something active I haven't tried before — a new sport, class, or trail","Something physical I haven't tried yet") },
+        { id:"creative",     label: y("Something creative — making something, or being moved by something made","Something creative — making or experiencing something") },
       ],
     },
     q2b: {
@@ -98,11 +98,11 @@ function buildQ(age) {
       text: y("⚖️ When you do try something new — what's usually going on? Pick all that feel true.",
                "⚖️ When you're in the mood to try something different — what's usually behind it?"),
       options:[
-        { id:"energy",  label: y("I'm in a good headspace and I actually have the energy for it","It's been a good week and I want to mark it with something") },
-        { id:"fatigue", label: y("I've been in the same routine too long and I can feel it","I've been in the same loop for too long and it's starting to show") },
-        { id:"proof",   label: y("Someone I trust has been or recommended it specifically","Someone I respect went and told me to — that matters to me") },
-        { id:"company", label: y("The right person is coming with me — certain people make me bolder","The right person is coming — I'm more adventurous with certain people") },
-        { id:"story",   label: y("I want something worth talking about afterwards","I want an experience I'll actually bring up again, not just another evening out") },
+        { id:"energy",  label: y("I'm in a good headspace and I actually have the energy for it","Good week — want to mark it somehow") },
+        { id:"fatigue", label: y("I've been in the same routine too long and I can feel it","Same routine too long — I can feel it") },
+        { id:"proof",   label: y("Someone I trust has been or recommended it specifically","Someone I trust recommended it") },
+        { id:"company", label: y("The right person is coming with me — certain people make me bolder","The right person is coming with me") },
+        { id:"story",   label: y("I want something worth talking about afterwards","I want something worth talking about later") },
       ],
     },
     q2c: {
@@ -110,11 +110,11 @@ function buildQ(age) {
       text: y("✅ When something feels like a guaranteed good time — what's usually behind that? Pick 2.",
                "✅ When something feels reliable and worth it — what's usually at the root of that? Pick 2."),
       options:[
-        { id:"known-place",  label: y("I've been before and I know exactly what I'm getting","It's somewhere I've been before and it's earned its place") },
-        { id:"known-format", label: y("It's a type of activity I genuinely enjoy — variety within it is fine","It's something I'm comfortable with — the format is familiar even if the place isn't") },
-        { id:"company",      label: y("I'm going with the right people — the company matters more than the plan","The right company — who I'm with matters more than where I'm going") },
-        { id:"expectation",  label: y("It's a type of activity I've done before — I know how it goes","It's a type of experience I've done before — I know what I'm walking into") },
-        { id:"friction",     label: y("It's easy to get to — I'm not fighting the city to get there","It's low-friction to get there — the experience starts before I arrive") },
+        { id:"known-place",  label: y("I've been before and I know exactly what I'm getting","Been there before — it's earned its place") },
+        { id:"known-format", label: y("It's a type of activity I genuinely enjoy — variety within it is fine","Familiar type of activity, new place is fine") },
+        { id:"company",      label: y("I'm going with the right people — the company matters more than the plan","Right people are coming — that's what matters") },
+        { id:"expectation",  label: y("It's a type of activity I've done before — I know how it goes","I know what I'm walking into") },
+        { id:"friction",     label: y("It's easy to get to — I'm not fighting the city to get there","Easy to get to — no logistics battle") },
       ],
     },
     q3a: {
@@ -145,20 +145,20 @@ function buildQ(age) {
       id:"q3c", type:"single",
       text: y("💪 When you're doing something you enjoy — how much do you want to exert?","💪 When you're out doing something you enjoy — how much do you actually want to put in?"),
       options:[
-        { id:"high",     label: y("A lot — I feel better when I've actually done something","High — passive experiences rarely feel like enough") },
+        { id:"high",     label: y("A lot — I feel better when I've actually done something","High — passive rarely feels like enough") },
         { id:"medium",   label:"Engaged but not wiped out — somewhere in the middle" },
-        { id:"low",      label: y("Low — show up, enjoy it, no effort required","Low — I want to arrive and have it be good without working for it") },
-        { id:"variable", label: y("Completely depends on how my week's gone","Varies too much to call — a long week changes everything") },
+        { id:"low",      label: y("Low — show up, enjoy it, no effort required","Low — arrive and have it be good") },
+        { id:"variable", label: y("Completely depends on how my week's gone","Depends entirely on the week") },
       ],
     },
     q4_effort: {
       id:"q4_effort", type:"single",
       text: y("💪 How much do you actually want to be doing when you're out?","💪 How much do you want to put into the experience itself?"),
       options:[
-        { id:"high",     label: y("A lot — I want to come home feeling like I actually did something","High — I'd rather push myself and feel it afterwards") },
+        { id:"high",     label: y("A lot — I want to come home feeling like I actually did something","High — I want to feel like I did something") },
         { id:"medium",   label:"Active and present, but not at my limit" },
-        { id:"low",      label: y("Low — I want to arrive and enjoy without working for it","Low — arrive, settle in, let it come to me") },
-        { id:"variable", label: y("Honestly depends on how my week's been","Varies week to week — a rough few days changes everything") },
+        { id:"low",      label: y("Low — I want to arrive and enjoy without working for it","Low — arrive and let it come to me") },
+        { id:"variable", label: y("Honestly depends on how my week's been","Depends on the week") },
       ],
     },
     q4_spont: {
@@ -174,10 +174,10 @@ function buildQ(age) {
       id:"q5_effort", type:"single",
       text: y("💪 On a typical outing — how much energy do you want to spend?","💪 How much do you want to put into the experience itself?"),
       options:[
-        { id:"high",     label: y("A lot — I feel it more when I've actually done something","High — I'd rather push myself and feel it afterwards") },
+        { id:"high",     label: y("A lot — I feel it more when I've actually done something","High — I want to feel like I did something") },
         { id:"medium",   label:"Engaged but sustainable — active without being drained" },
-        { id:"low",      label: y("Low — show up, enjoy it, the effort of getting there is enough","Low — arrive, settle in, let it come to me") },
-        { id:"variable", label: y("Depends on the week — I genuinely can't call it in advance","Varies week to week — a rough few days changes everything") },
+        { id:"low",      label: y("Low — show up, enjoy it, the effort of getting there is enough","Low — arrive and let it come to me") },
+        { id:"variable", label: y("Depends on the week — I genuinely can't call it in advance","Depends on the week") },
       ],
     },
     q5_spont: {
@@ -617,9 +617,16 @@ export default function App() {
         <h1 style={{fontFamily:SERIF, fontSize:38, fontWeight:500, color:C.text, margin:"0 0 14px", lineHeight:1.15}}>
           {lang==="hi" ? "कुछ सवाल।" : "A few questions."}
         </h1>
-        <p style={{color:C.textSoft, fontSize:15.5, lineHeight:1.65, margin:"0 0 40px"}}>
-          {lang==="hi" ? "यहाँ से शुरुआत है। यहाँ खत्म नहीं।" : "This is where we start. Not where we stop."}<br/>
-          <span style={{fontSize:14, color:C.muted}}>{lang==="hi" ? "बस 2 मिनट — जो मन में आए वो चुनें।" : "About 2 minutes — go with your gut."}</span>
+        <p style={{color:C.textSoft, fontSize:15, lineHeight:1.75, margin:"0 0 40px"}}>
+          {lang==="hi" ? <>
+            इस शहर में ज़्यादातर लोग जितना करना चाहते हैं, उससे कम कर पाते हैं।<br/>
+            <span style={{fontSize:14, color:C.muted}}>यह इस बारे में नहीं कि आपको क्या करना चाहिए — बल्कि यह है कि genuinely क्या अच्छा लगता है।</span><br/>
+            <span style={{fontSize:13.5, color:C.muted, fontStyle:"italic"}}>7 सवाल। जो मन में आए वो चुनें।</span>
+          </> : <>
+            Most people in this city have more they want to do than they actually end up doing.<br/>
+            <span style={{fontSize:14, color:C.muted}}>This isn't about what you should want — it's about what genuinely fits you.</span><br/>
+            <span style={{fontSize:13.5, color:C.muted, fontStyle:"italic"}}>7 questions. Answer instinctively.</span>
+          </>}
         </p>
         <button onClick={() => setScreen("setup")} style={BTN_PRIMARY}>{lang==="hi"?"शुरू करें →":"Let's go"}</button>
       </div>
